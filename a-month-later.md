@@ -47,5 +47,5 @@
 
 [martin-fowler-quote]: https://en.wikiquote.org/wiki/Martin_Fowler
 
-[img-test-first]: img/test-first!.png
-[img-pair-programming]: img/pair-programming.png
+[img-test-first]: img/test_first!.png
+[img-pair-programming]: img/pair-programming.jpg
