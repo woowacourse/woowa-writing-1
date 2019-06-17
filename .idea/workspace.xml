@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
+    <list default="true" id="0e8fb28e-3c65-46f9-9a58-5646d770f315" name="Default Changelist" comment="" />
+=======
     <list default="true" id="0e8fb28e-3c65-46f9-9a58-5646d770f315" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
+>>>>>>> 635dcad200d4300943bc42a5d9f62c5be395d1cb
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +67,10 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+<<<<<<< HEAD
+    <property name="ignore_missing_gitignore" value="true" />
+=======
+>>>>>>> 635dcad200d4300943bc42a5d9f62c5be395d1cb
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -93,12 +101,20 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1560697366254</updated>
+<<<<<<< HEAD
+      <workItem from="1560697368107" duration="536000" />
+=======
       <workItem from="1560697368107" duration="306000" />
+>>>>>>> 635dcad200d4300943bc42a5d9f62c5be395d1cb
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="536000" />
+=======
     <option name="totallyTimeSpent" value="306000" />
+>>>>>>> 635dcad200d4300943bc42a5d9f62c5be395d1cb
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
