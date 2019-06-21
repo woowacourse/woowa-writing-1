@@ -15,13 +15,13 @@
 바로 `시원섭섭`한 감정을 처음 경험했을 때이다.
 군대를 **전역하는 순간**! 그간 함께 지냈던 **동료와 헤어져야 하는 그 순간**!
 시원섭섭한 감정과 함께 두 가지를 깨달았다.
-하나는 조상님들이 이런 단어까지 만들어 놓았다는 것이다. 
+하나는 조상님들이 이런 단어까지 만들어 놓았다는 점이다. 
 영어에선 찾아볼 수 없는 매력적인 단어로부터, 한글의 위대함을 느꼈다. 
 
 ![translate.google.com](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/68f1a644-efb7-48a4-a768-db2cb5d5bc3d/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIAT73L2G45MTOVKVR7%2F20190616%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20190616T122622Z&X-Amz-Expires=86400&X-Amz-Security-Token=AgoJb3JpZ2luX2VjEPT%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLXdlc3QtMiJGMEQCIGIBRLOivfkK7%2FTXKuF3jtiJt%2Fyquc1sLD8X3X4A0HzSAiByrgCM3HClmaMYeOnimi8uDE5ylfVsUBHGJYjgC3330CraAwgtEAAaDDI3NDU2NzE0OTM3MCIMJxQx4F%2BH8sb%2BPGTNKrcDdXbt8mMi4Yvd2QeA8ZQ4dnAYUMoBC%2B23WOuhmhdTggC0n2ic0xk5a9CwvYN6l%2Bs%2FKxY0y3na551OAYaOOgIt8iuLB3ITxo%2FPqgXlzAO%2BSPKfEvvPOZPWqZt8yTvi6n4DCtvtwEqnRD4nCX%2B6Gp8UcyMk4BR0O1T%2F0ZCuVvJ5Mm8aCZKHmuNIkEg5esFUUbgyirNqWJBcNzN6zKVb0YObpRf%2BQsok9eW5JP5PcGEZmNKdx9yOBWIHkRZDFJ2erDpbdDQhXC7efFv6pwlqKRXQDUioNY6JeluunxC6%2BFfjpOQpXVbwPKUdg40mRvd9JBv6GvElkZ8srxYAF7QHrjdcxblf4rDdrQCVH659whGN0rRzN4KyY98qyWJri%2Fv7Cg74wpwng%2BNCN0kiAGjb6%2FXXZGbrmI5ifdJFJQXb%2BhIhu4oP0Tminj6Z2qiIsd6eo5C%2BdTbGC9WmRNtl8iFbTHhO7kt3wbhhPUhmLgueEZOeMgb3GiRqXI086%2FAjKe4IVgqyGkkz%2Fla%2FuHrs88O0ggpCGHD%2BBO0L%2FLtop7GawJyqJDSoxSYIG3UCv5VVK9Almjm6W0BicvaIuzDYzJjoBTq1AbgQ7cUohLDtWZSAO4REJA6wvKKdFDjDskM5dJzdBBCPnC%2FmM9uSeZ07X2RSqhgZ7dvuF57f9g4G%2BMQi91HB%2Fj0Na4TZ4kHmHrUCVbRrzopYKor6qzbyxObD6P4G1hKGUvLVbZ4FVA4F7CNixn6p%2Bzh1E3HV%2FXVbdWmzcK%2FK5MeMsx5w0sdvc4hdumtEOxTb90usMeDvaivCeESvWI3QKEgn3hGRzJUVtdAnZ%2F2rZEgFO4huGiE%3D&X-Amz-Signature=e3d45de70e63ff7cbf99eb9d868e7452304742e0c2bdf8056a3fa7cecb0b6abd&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
 *영어가 짧아 모르는 것일 수도 있지만, 번역기가 모르면 없다고 봐도 무방하지 않을까...?*
 
-다른 하난 단어(혹은 지식)를 알고만 있는 것과 느끼는 건 다르다는 것이다.
+다른 하난 단어(혹은 지식)를 알고만 있는 것과 느끼는 건 다르다는 것이었다.
 `기쁨`, `슬픔`, `아픔`, `하품?` 등 기본적인 감정에 대해선 많이 경험하여 익숙해졌다.
 하지만, 시원섭섭이란 감정은 처음이었다.
 멀리서 바라만 보고 있던 것이 내 것이 돼서 이해할 수 있을 것 같은 기분이었다.
@@ -64,6 +64,6 @@
 아, 부수적인 목표가 또 있다.
 이르긴 하지만 언젠간 우테코의 8개월 과정도 끝이 날 것이다.
 그때, 저번과 같은 `시원` `섭섭`한 감정을 느끼지 않는 것이 목표다.
-먼 미래는 몰라도, 적어도 6~7개월 후의 `나`는 그렇지 않았으면 좋겠다.
+먼 미래는 몰라도, 적어도 6~7개월 후에는 그렇지 않았으면 좋겠다.
 @Pobi, @jun은 모르는 (**진짜**)내향적인 성격의 `나`가 풀어나가야 할 숙제인 것 같다.
 오로지 과정을 기분 좋게 끝내고 `시원`한 감정만 있기를!
