@@ -1,129 +1,31 @@
-# Spring Security OAuth2에 대한 테스트 코드를 작성해보자
+## 우테코 2기들에게 전하고 싶은 조언
 
-기본적으로 Spring Security라는 내용은 보안과 관련된 내용으로 정말 많은 내용이 추상화되어 있기 때문에 사용하기에는 편하지만 그 개념을 익히는데 많은 어려움이 따른다. 특히 나같은 초보자에게 말이다.
+약 8개월간의 우아한테크코스(이하 우테코) 삶이 끝나간다. 항상 끝이라는 것은 아쉬움을 가져오기 마련이다. 그동안 정말 많은 일이 있었다. 돌이켜보면 다 추억이라는 말을 증명하듯 지난 8개월의 시간은 재미있었다는 생각이 제일 많이 든다. 물론 힘든 시간도 있었고 방황이라는 것도 해본 것 같다. 하지만 그 과정마저도 재미라는 주연을 한껏 드높여주는 조연이라는 생각이 든다. 그래서 그런지 아쉬움이 더 크게 느껴진다. 여러 순간 중에서 이렇게 행동하면 좋았을 걸이라는 후회도 있기에 그 아쉬움을 뒤로한 채 앞으로 내가 했던 후회를 하지 않았으면 하는 마음으로 꼰대 기질을 한번 발휘해보겠다.
 
-거기에 OAuth2까지 사용하게 되면 로그인과 관련된 테스트 코드를 짜는 것은 매우 고역일 수 있다. 뭐 하나를 해도 로그인이 되어 권한이 있는 사용자의 요청에 대해서만 내부 api가 돌아가게 하는 것이 Security와 OAuth2의 합작품이기 때문이다.
+### 너 내 동료가 돼라!
 
-테스트 코드를 작성할 때 이전에 Security와 OAuth2를 적용하지 않았을 경우에는 `setUp()` 과 같은 `@BeforeEach` 어노테이션이 붙어있는 메서드에서 사용자 로그인을 행하는 테스트 로직을 작성하고 그렇게 얻은 사용자 정보를 가지고 CRUD를 비롯한 그 외 기능에 대한 테스트 코드를 작성한게 일반적일 것이다.
+원피스라는 만화를 보면 주인공 루피가 지금의 동료들에게 이렇게 이야기한다. '너 내 동료가 돼라!'. 그리고 그 동료들과 험난한 해적질(?)을 해나간다. 그 여러 이야기 속에서 루피 혼자서는 절대 헤쳐나가지 못할 일들을 동료들과 함께 힘을 합쳐 헤쳐나간다.
 
-하지만 Security와 OAuth2를 적용하게 되는 순간 이런 일반적인 내용은 씨알 하나 먹히지 않는다. `@WithMockUser`라는 어노테이션을 사용하면 손쉽게 테스트 코드를 작성할 수 있겠지만 이는 임시방편의 대안일 뿐이다. 특정 타입에 대한 사용자 정보를 기대하고 작성해야하는 테스트코드인 경우에는 `@WithMockUser` 어노테이션은 무용지물이 된다.
+그래서 앞으로 같이 아침부터 저녁까지 같이 지낼 크루들과 좋은 동료가 됐으면 하는 바람이다. 이제부터 우리는 개발자라는 타이틀을 걸고 사회에 나갈 인재들이다. 혼자 헤쳐나갈 생각을 하기보단 좋은 동료를 모아 같이 나아가는 시작점이 됐으면 좋겠다. 물론 약 50명의 크루와 모두 친해지는 것은 힘들 것이다. 최소 1, 2명이라도 정말 친한 동료를 만들었으면 좋겠다. 그래서 그들과 공부뿐만 아니라 잡담을 통한 경쟁력을 키워나가 다시 웃으면서 만날 수 있는 그런 사이가 되길 바란다.
 
-그래서 특정 사용자 정보를 가지고 테스트를 해야하는 경우 (Spring Security + Spring OAuth2 환경에서), 위 문제를 해결하기 위한 방법을 소개하려한다. (물론 이에 대한 더 좋은 방법이 있을 수 있지만 직접 사용해본 코드에 대해 나의 생각을 이야기 해볼 것이다. 즉, best practice는 아닐 수 있다.)
+그렇게 동료가 된 크루들과 우테코를 수료하고 나서도 미래에 각자의 자리에서 서로 이끌어주고 조언을 구할 수 있는 환경을 마련해나갔으면 좋겠다. 물론 나도 그러려고 노력할 것이다. 서로 만나 맥주 한잔과 함께 회사 욕을 안주 삼아 서로의 고민, 스트레스를 들어주고 풀어주면서 의지할 수 있는 동료를, 그리고 나아가 정보 공유와 같은 기술적 생산성을 같이 키워나갈 수 있는 그런 동료를 이곳에서 만들어봤으면 한다.
 
-## @WithSecurityContext
+### 코치님, 질문 있습니다.
 
-우선 어노테이션 하나를 직접 만들어보자.
+옆에 있는 크루들은 우리의 동료가 될 수 있다면 교무실에 계신 코치님들은 우리의 항해의 도움을 주는 조력자들이다. 그래서 적극적으로 그분들에게 찾아갔으면 좋겠다. 모르는 게 있다면 이는 분명 코치님들이 해결해줄 수 있을 것이다. 정말 뛰어난 분들만 있기 때문이다. 물론 무작정 찾아가기보단 고민하고 고민해도 해결할 수 없을 때, 그때 찾아가길 권한다. 스스로 고민하는 과정은 필수이기 때문이다.
 
-    @Retention(RetentionPolicy.RUNTIME)
-    @WithSecurityContext(factory = WithMockCustomUserSecurityContextFactory.class)
-    public @interface WithMockCustomUser {
-    
-    	String oauthId() default "12345";
-    
-      String username() default "rob";
-    
-      String email() default "example@gmail.com";
-    }
+나는 코치님들과 더 친해졌으면 하는 아쉬움이 크다. 그들은 개발자로서의 선배이자 동시에 인생의 선배이기도 하다. 개발과 관련된 질문도 좋고 삶에 대한 고민도 그분들은 성심성의껏 들어주면서 위로가 돼줄 것이다. 따로 만나는 게 부끄럽고 어색하다면 아침에 데일리 미팅 때 이야기를 살짝 꺼내봐도 좋을 것이다.
 
-이제부터 우리는 테스트를 위한 `@WithMockCustomUser` 라는 어노테이션을 사용할 것이다. 이 어노테이션을 보면 `@WithSecurityContext` 라는 어노테이션이 위에 붙어있다.
+더 나아가 개발 질문과 관련하여 대답을 듣고 무조건 수긍하기보단 본인만의 의견을 피력하여 토론을 이어나가도 좋을 것 같다. 물론 나는 한 번도 그런 적이 없지만, 그런 광경을 종종 봤기에 앞으로 여러분들도 더 많은 이야기를 코치님들과 나눠봤으면 좋겠다. 그렇게 코치님들과 친해진다면 더 자세하고 맘 편히 질문할 수 있을 것이다. 질문이 있지만 내심 속으로 부끄럽거나 불편하여 쉽사리 질문하지 못하는 그런 분들도 분명 있을 것이다. 나 또한 그랬는데 한번, 두 번 노력하다 보니 나중에는 그분들에게 더욱 편히 내 생각을 이야기하고 질문할 수 있게 되더라. 그분들을 통해 우리는 수년간의 축적된 지식을 단시간 내에 전달받을 수 있으며 질 좋은 공부를 이어나갈 수 있을 것이다.
 
-이 어노테이션은 Spring Security에게 테스트를 위한 `SecurityContext`를 만들어달라는 신호다. `@WithSecurityContext` 어노테이션은 속성으로 factory를 가지고 있는데 이 속성값에 할당되는 클래스는 `WithSecurityContextFactory`라는 인터페이스의 구현체이어야 한다. 
+### 기억보단 기록을...
 
-다시 말해, `@WithSecurityContext` 어노테이션은 `@WithMockCustomUser` 어노테이션이 주어졌을 때 factory 속성값에 할당된 클래스 내부에 재정의되어 있는 메서드 `createSecurityContext()` 를 호출하여 `SecurityContext`를 생성한다.
+정말 좋아하는 블로그다. 혹시 모르는 분들이 있다면 위 제목을 구글에 검색해보길 바란다. 엄청난 블로그가 기다리고 있을 테니... 그리고 앞으로 공부하면서 수없이 이 블로그를 들어가 보게 될 것으로 생각한다. 그 과정에서 블로그가 가지고 있는 힘을 많이 느낄 수 있었으면 좋겠다.
 
-    public class WithMockCustomUserSecurityContextFactory
-            implements WithSecurityContextFactory<WithMockCustomUser> {
-    
-        @Override
-        public SecurityContext createSecurityContext(final WithMockCustomUser customUser) {
-    				// 빈 context 생성
-            SecurityContext context = SecurityContextHolder.createEmptyContext();
-    
-    				// 커스텀 OAuth2User 구현체인 SecurityUser 생성
-    				// SecurityUser 생성과 편의를 위해 @WithMockCustomUser의 속성 필드도 SecurityUser과 통일 시킴
-            SecurityUser principal = SecurityUser.builder()
-                    .oauthId(Long.valueOf(customUser.oauthId()))
-                    .username(customUser.username())
-                    .email(customUser.email())
-                    .build();
-    
-    				// Authentication에 위에서 생성한 principal 주입 & 생성
-            Authentication auth =
-                    new UsernamePasswordAuthenticationToken(principal, "password", principal.getAuthorities());
-    
-    				// 빈 context에 Authentication 넣어줌
-            context.setAuthentication(auth);
-            return context;
-        }
-    }
+그래서 블로그를 시작해보라고 이야기하고 싶다. 솔직하게 이야기하면 나는 블로그 글을 몇 번 써보다 만 사람이다. 정말 의지박약의 개발자라 할 수 있다. 그래서 많이 후회한다. 시간이 부족해서라는 변명과 합리화를 일삼았지만, 오히려 우테코 8개월이란 시간이 더 여유로운 시간임을 이제야 깨닫게 됐다. 그렇기에 여러분들도 여유로울 때 블로그를 정리해봤으면 좋겠다. 거창한 글을 작성하려고 하기보단 그날, 그 주에 공부한 내용을 간단하게나마 정리하는 게 정말 많은 도움이 된다고 생각한다.
 
-위 클래스는 실제 프로젝트에 적용한 `WithSecurityContextFactory` 의 구체 클래스다. 주석의 설명과 같이 특정 사용자 정보`SecurityUser`를 가지는 테스트 용 `SecurityContext`를 생성하고 있다.
+책을 읽으며 지식을 쌓고 실습을 통해 그 이해도를 깊게 가져갈 수 있지만 이를 글로 정리하면 그 효과는 배가 된다고 생각한다. 지금 나는 블로그 글을 쓴다기보단 노션(notion)이라는 앱을 통해 로컬에 정리해보고 있는데 한번 정리한 내용은 더 오래 기억되는 것을 몸소 경험하고 있다. 물론 시간이 지나면 잊혀지겠지만 이미 정리해놓은 것이 있으므로 다시 읽으면 그 내용이 쉽게 떠오를 것이다.
 
-이제부터 우리는 우리 입맛에 맞는 로그인된 사용자 정보를 가지고 마음껏 테스트를 할 수 있을 것이다.
+우리는 기계가 아니다. 그래서 머릿속 모든 정보, 지식이 영구적이지 않다. 그래서 했던 것도 잊어버리고 나중에 또 헤맬 수 있다. 나 또한 그런 경험이 꽤 많다... 그래서 이를 글로 정리한다면 두, 세 번 삽질할 수 있는 것을 한 번으로 줄일 수 있을 것이다. 그렇게 시간을 아끼면서 배움의 시간을 더 많이 가져가 공부의 효율을 높일 수 있을 것이다.
 
-## @WithSecurityContext 적용
-
-*com.gaejangmo.apiserver.model.user.controller.UserApiController*
-
-    @RestController
-    @RequestMapping("/api/v1/users")
-    public class UserApiController {
-        private final UserService userService;
-    
-        public UserApiController(final UserService userService) {
-            this.userService = userService;
-        }
-    
-        @GetMapping("/logined")
-        public ResponseEntity<UserResponseDto> find(@LoginUser SecurityUser user) {
-            UserResponseDto response = userService.findUserResponseDtoByOauthId(user.getOauthId());
-            return ResponseEntity.ok().body(response);
-        }
-    }
-
-위 코드는 현재 로그인된 사용자 정보를 확인하는 api 코드다. `@LoginedUser` 어노테이션을 이용해 ArgumentResolver를 구현했고 `SecurityUser`  타입의 객체를 인자로 받는다.
-
-`SecurityUser`는 실제 프로덕션 코드에서도 Security + OAuth2 로그인을 시도할 경우 인가 완료 시 생성되어 `SecurityContext`에 저장되는 객체다.
-
-*com.gaejangmo.apiserver.model.user.controller.UserApiControllerTest*
-
-    @SpringBootTest
-    @AutoConfigureMockMvc
-    class UserApiControllerTest {
-    		// /api/v1/users
-        private static final String USER_API = linkTo(UserApiController.class).toString();
-        private static final ObjectMapper MAPPER = new ObjectMapper();
-    
-        @Autowired
-        private MockMvc mockMvc;
-    
-        @Test
-    		// @WithSecurityContext 호출을 위한 어노테이션 적용 (+ 속성 값 설정)
-        @WithMockCustomUser(oauthId = "20608121", username = "JunHoPark93", email = "abc@gmail.com")
-        void 사용자_로그인_시_로그인_정보_반환() throws Exception {
-            ResultActions resultActions = mockMvc.perform(get(USER_API + "/logined")
-                    .accept(MediaType.APPLICATION_JSON)
-                    .contentType(MediaType.APPLICATION_JSON))
-                    .andDo(print());
-    
-            byte[] contentAsByteArray = resultActions.andExpect(status().isOk())
-                    .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                    .andReturn().getResponse().getContentAsByteArray();
-    
-            UserResponseDto userResponseDto = MAPPER.readValue(contentAsByteArray, UserResponseDto.class);
-    
-    				// UserTestData.RESPONSE_DTO는 테스트 용으로 만든 확인용 객체
-    				// 로그인 정보 확인 api인 find() 메서드의 반환값과 확인용 객체 비교
-            assertThat(userResponseDto).isEqualTo(UserTestData.RESPONSE_DTO);
-        }
-    }
-
-위 테스트 코드를 실행시킬 시 `@WithMockCustomUser(oauthId = "20608121", username = "JunHoPark93", email = "abc@gmail.com")` 를 통해 실제 api 코드인 `find(@Logined SecurityUser user)` 의 user 파라미터에 
-
-    SecurityUser.builder()
-    			.oauthId(20608121L)
-    			.username("JunHoPark93")
-    			.email("abc@gmail.com")
-    			.build();
-
-위와 같은 객체가 인자로 들어가게 된다. 이로써 우리 입맛에 맞는 커스텀한 로그인된 사용자 정보를 사용할 수 있게 된다.
+우테코 1기에도 많은 사람이 블로그 운영을 하고 있다. 오이인이라는 사람은 주 2회 포스팅을 목표로 하여 깃 허브 블로그를 꾸준하게 운영하고 있으며 제이테크 사장님이라는 사람은 블로그 광고를 통한 수입을 위해(?) 아주 예전부터 티스토리 블로그를 운영하고 있다. 이렇게 멋진 사람들이 많기에 2기 여러분도 많은 분이 멋진 사람이 됐으면 좋겠다.
